@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @Html.ActionLink("Meu médico", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                            @if (Session["usuario"] != null)
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administração</a>
+                                    <div class="dropdown-menu">
+                                        @Html.ActionLink("Cadastrar médico", "Medicos", "Adm", new { area = "" }, new { @class = "dropdown-item" })
+                                        @Html.ActionLink("Cadastrar cidade", "Cidades", "Adm", new { area = "" }, new { @class = "dropdown-item" })
+                                        @Html.ActionLink("Cadastrar especialidade", "Especialidades", "Adm", new { area = "" }, new { @class = "dropdown-item" })
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                        @if (Session["usuario"] == null)
+                        {
+                            @Html.ActionLink("Fazer Login", "Index", "home", new { area = "" }, new { @class = "btn btn-outline-primary" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Logout", "Index", "home", new { area = "" }, null)
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Daniel Junior</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>   
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    
+</body>
+</html>

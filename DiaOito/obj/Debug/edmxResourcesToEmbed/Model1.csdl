@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeuMedicoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EstadosId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Medicos" Relationship="Self.CidadeFK" FromRole="Cidades" ToRole="Medicos" />
+    <NavigationProperty Name="Estados" Relationship="Self.EstadosFK" FromRole="Cidades" ToRole="Estados" />
+  </EntityType>
+  <EntityType Name="Especialidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Especialidade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MedicoPorEspecialidade" Relationship="Self.FK_MedicoPorEspecialidade_Especialidades" FromRole="Especialidades" ToRole="MedicoPorEspecialidade" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sigla" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PaisesId" Type="Int32" />
+    <NavigationProperty Name="Cidades" Relationship="Self.EstadosFK" FromRole="Estados" ToRole="Cidades" />
+    <NavigationProperty Name="Paises" Relationship="Self.PaisesFK" FromRole="Estados" ToRole="Paises" />
+  </EntityType>
+  <EntityType Name="MedicoPorEspecialidade">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MedicoId" Type="Int32" Nullable="false" />
+    <Property Name="EspecialidadeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Especialidades" Relationship="Self.FK_MedicoPorEspecialidade_Especialidades" FromRole="MedicoPorEspecialidade" ToRole="Especialidades" />
+    <NavigationProperty Name="Medicos" Relationship="Self.EspMedico" FromRole="MedicoPorEspecialidade" ToRole="Medicos" />
+  </EntityType>
+  <EntityType Name="Medicos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CRM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bairro" Type="String" MaxLength="60" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="CidadeFK" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AtenderPorConvenio" Type="Boolean" Nullable="false" />
+    <Property Name="TemClinica" Type="Boolean" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cidades" Relationship="Self.CidadeFK" FromRole="Medicos" ToRole="Cidades" />
+    <NavigationProperty Name="MedicoPorEspecialidade" Relationship="Self.EspMedico" FromRole="Medicos" ToRole="MedicoPorEspecialidade" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sigla" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Estados" Relationship="Self.PaisesFK" FromRole="Paises" ToRole="Estados" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="CidadeFK">
+    <End Role="Cidades" Type="Self.Cidades" Multiplicity="1" />
+    <End Role="Medicos" Type="Self.Medicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cidades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicos">
+        <PropertyRef Name="CidadeFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstadosFK">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+    <End Role="Cidades" Type="Self.Cidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cidades">
+        <PropertyRef Name="EstadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MedicoPorEspecialidade_Especialidades">
+    <End Role="Especialidades" Type="Self.Especialidades" Multiplicity="1" />
+    <End Role="MedicoPorEspecialidade" Type="Self.MedicoPorEspecialidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MedicoPorEspecialidade">
+        <PropertyRef Name="EspecialidadeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PaisesFK">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+    <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estados">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EspMedico">
+    <End Role="Medicos" Type="Self.Medicos" Multiplicity="1" />
+    <End Role="MedicoPorEspecialidade" Type="Self.MedicoPorEspecialidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MedicoPorEspecialidade">
+        <PropertyRef Name="MedicoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MeuMedicoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cidades" EntityType="Self.Cidades" />
+    <EntitySet Name="Especialidades" EntityType="Self.Especialidades" />
+    <EntitySet Name="Estados" EntityType="Self.Estados" />
+    <EntitySet Name="MedicoPorEspecialidade" EntityType="Self.MedicoPorEspecialidade" />
+    <EntitySet Name="Medicos" EntityType="Self.Medicos" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="CidadeFK" Association="Self.CidadeFK">
+      <End Role="Cidades" EntitySet="Cidades" />
+      <End Role="Medicos" EntitySet="Medicos" />
+    </AssociationSet>
+    <AssociationSet Name="EstadosFK" Association="Self.EstadosFK">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Cidades" EntitySet="Cidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MedicoPorEspecialidade_Especialidades" Association="Self.FK_MedicoPorEspecialidade_Especialidades">
+      <End Role="Especialidades" EntitySet="Especialidades" />
+      <End Role="MedicoPorEspecialidade" EntitySet="MedicoPorEspecialidade" />
+    </AssociationSet>
+    <AssociationSet Name="PaisesFK" Association="Self.PaisesFK">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Estados" EntitySet="Estados" />
+    </AssociationSet>
+    <AssociationSet Name="EspMedico" Association="Self.EspMedico">
+      <End Role="Medicos" EntitySet="Medicos" />
+      <End Role="MedicoPorEspecialidade" EntitySet="MedicoPorEspecialidade" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
