@@ -41,7 +41,7 @@ namespace DiaOito.Controllers
                        .ToList();
 
             }
-            else
+            else 
             {
                  medico = db.Medicos
                        .Include(med => med.Cidades)
@@ -133,19 +133,14 @@ namespace DiaOito.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Excluir(string Id)
-        {
-            try
-            {
-                int id = int.Parse(Id);
-                Medicos medico = db.Medicos.Find(id);
-                db.Medicos.Remove(medico);
-                db.SaveChanges();
+        {           
+            int id = int.Parse(Id);
+            Medicos medico = db.Medicos.Find(id);
+            db.Medicos.Remove(medico);
+            db.SaveChanges();
 
-                return RedirectToAction("index");
-            }catch
-            {
-                return HttpNotFound();
-            }
+            return RedirectToAction("index");
+          
         }
 
         protected override void Dispose(bool disposing)

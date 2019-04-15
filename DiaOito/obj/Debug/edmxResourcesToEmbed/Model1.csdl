@@ -134,7 +134,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="EspMedico">
-    <End Role="Medicos" Type="Self.Medicos" Multiplicity="1" />
+    <End Role="Medicos" Type="Self.Medicos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="MedicoPorEspecialidade" Type="Self.MedicoPorEspecialidade" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Medicos">
