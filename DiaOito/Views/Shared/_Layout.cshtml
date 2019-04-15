@@ -21,6 +21,9 @@
                             <li class="nav-item">
                                 @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                             </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Buscar médicos", "Index", "Medico", new { area = "" }, new { @class = "nav-link" })
+                            </li>
                             @if (Session["usuario"] != null)
                             {
                                 <li class="nav-item dropdown">
