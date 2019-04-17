@@ -198,6 +198,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Especialidades.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -247,6 +248,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils\HashSha.cs" />
+    <Compile Include="ViewModel\AlterarSenhaViewModel.cs" />
     <Compile Include="ViewModel\CadastroUsuarioViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
   </ItemGroup>
@@ -271,6 +273,7 @@
     <Content Include="Views\Medico\Index.cshtml" />
     <Content Include="Views\Autenticacao\Login.cshtml" />
     <Content Include="Views\Autenticacao\Cadastrar.cshtml" />
+    <Content Include="Views\Perfil\AlterarSenha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -27,8 +27,9 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administração</a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name</a>
                                     <div class="dropdown-menu">
+                                        @Html.ActionLink("Alterar senha", "AlterarSenha", "Perfil", new { area = "" }, new { @class = "dropdown-item" })
                                         @Html.ActionLink("Gerenciar médico", "Index", "Medico", new { area = "" }, new { @class = "dropdown-item" })
                                         @Html.ActionLink("Cadastrar cidade", "Cidades", "Adm", new { area = "" }, new { @class = "dropdown-item" })
                                         @Html.ActionLink("Cadastrar especialidade", "Especialidades", "Adm", new { area = "" }, new { @class = "dropdown-item" })
