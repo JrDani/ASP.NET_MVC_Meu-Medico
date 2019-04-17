@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Net;
 
 namespace DiaOito.Controllers
-{
+{    
     public class MedicoController : Controller
     {
         private MeuMedicoEntities db = new MeuMedicoEntities();
@@ -54,6 +54,7 @@ namespace DiaOito.Controllers
             return View(medico); 
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.CidadeFK = new SelectList(db.Cidades, "Id", "Cidade");            
@@ -62,6 +63,7 @@ namespace DiaOito.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Create(Medicos medico, string Especialidade)
         {
@@ -82,6 +84,7 @@ namespace DiaOito.Controllers
             return View(medico);
         }
 
+        [Authorize]
         public ActionResult Editar(long? id)
         {
             if(id == null)
@@ -100,6 +103,7 @@ namespace DiaOito.Controllers
             return View(medico);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Editar(Medicos medico)
         {
@@ -114,7 +118,7 @@ namespace DiaOito.Controllers
             return View(medico);
         }
 
-        
+        [Authorize]
         public ActionResult Excluir(long? id)
         {
             if(id == null)
@@ -129,7 +133,8 @@ namespace DiaOito.Controllers
             ViewBag.CidadeFK = new SelectList(db.Cidades, "Id", "Cidade", medico.Id);
             return View(medico);
         }
-        
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Excluir(string Id)

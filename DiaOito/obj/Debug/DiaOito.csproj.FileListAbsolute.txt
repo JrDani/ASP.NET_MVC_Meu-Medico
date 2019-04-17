@@ -77,3 +77,16 @@ D:\daniel\DiaOito\DiaOito\obj\Debug\DiaOito.csproj.CopyComplete
 D:\daniel\DiaOito\DiaOito\obj\Debug\DiaOito.dll
 D:\daniel\DiaOito\DiaOito\obj\Debug\DiaOito.pdb
 D:\daniel\DiaOito\DiaOito\obj\Debug\DiaOito.csprojAssemblyReference.cache
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.dll
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.Security.Cookies.dll
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.Security.dll
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.Security.OAuth.dll
+D:\daniel\DiaOito\DiaOito\bin\Newtonsoft.Json.dll
+D:\daniel\DiaOito\DiaOito\bin\Owin.dll
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.xml
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.Security.xml
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.Security.Cookies.xml
+D:\daniel\DiaOito\DiaOito\bin\Microsoft.Owin.Security.OAuth.xml
+D:\daniel\DiaOito\DiaOito\bin\Newtonsoft.Json.xml

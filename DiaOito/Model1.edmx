@@ -77,7 +77,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Usuario" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Senha" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Senha" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Email" Type="nchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="CidadeFK">
@@ -259,7 +259,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Senha" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="CidadeFK">

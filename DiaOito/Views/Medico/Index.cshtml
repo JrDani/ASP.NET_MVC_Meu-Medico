@@ -11,17 +11,21 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>       
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
-        </th>        
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Cidades.Cidade)
         </th>
         <th>
             Especialidade(s)
         </th>
-    </tr>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <th>Administração</th>
+        }
+        </tr>
 
 @foreach (var item in Model) {
     <tr>
@@ -35,15 +39,18 @@
         <td>
             @foreach (var item2 in item.MedicoPorEspecialidade)
             {
-               @Html.DisplayFor(modelItem => item2.Especialidades.Especialidade)
-               @(item2 != item.MedicoPorEspecialidade.Last() ? ", " : "")
+                @Html.DisplayFor(modelItem => item2.Especialidades.Especialidade)
+                @(item2 != item.MedicoPorEspecialidade.Last() ? ", " : "")
             }
 
-            </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
-            @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
         </td>
+        @if (User.Identity.IsAuthenticated)
+        { 
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+            </td>
+        }
     </tr>
 }
 
