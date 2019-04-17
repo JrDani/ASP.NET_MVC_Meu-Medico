@@ -195,9 +195,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AutenticacaoController.cs" />
+    <Compile Include="Controllers\CidadesController.cs" />
+    <Compile Include="Controllers\EspecialidadesController.cs" />
+    <Compile Include="Controllers\EstadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
-    <Compile Include="Controllers\PaisController.cs" />
+    <Compile Include="Controllers\PaisesController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Especialidades.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -274,6 +277,26 @@
     <Content Include="Views\Autenticacao\Login.cshtml" />
     <Content Include="Views\Autenticacao\Cadastrar.cshtml" />
     <Content Include="Views\Perfil\AlterarSenha.cshtml" />
+    <Content Include="Views\Paises\Create.cshtml" />
+    <Content Include="Views\Paises\Delete.cshtml" />
+    <Content Include="Views\Paises\Details.cshtml" />
+    <Content Include="Views\Paises\Edit.cshtml" />
+    <Content Include="Views\Paises\Index.cshtml" />
+    <Content Include="Views\Cidades\Create.cshtml" />
+    <Content Include="Views\Cidades\Delete.cshtml" />
+    <Content Include="Views\Cidades\Details.cshtml" />
+    <Content Include="Views\Cidades\Edit.cshtml" />
+    <Content Include="Views\Cidades\Index.cshtml" />
+    <Content Include="Views\Estados\Create.cshtml" />
+    <Content Include="Views\Estados\Delete.cshtml" />
+    <Content Include="Views\Estados\Details.cshtml" />
+    <Content Include="Views\Estados\Edit.cshtml" />
+    <Content Include="Views\Estados\Index.cshtml" />
+    <Content Include="Views\Especialidades\Create.cshtml" />
+    <Content Include="Views\Especialidades\Delete.cshtml" />
+    <Content Include="Views\Especialidades\Details.cshtml" />
+    <Content Include="Views\Especialidades\Edit.cshtml" />
+    <Content Include="Views\Especialidades\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

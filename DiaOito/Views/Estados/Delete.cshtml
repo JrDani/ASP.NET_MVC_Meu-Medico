@@ -1,0 +1,57 @@
+﻿@model DiaOito.Estados
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Estados</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sigla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaisesId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaisesId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paises.Pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paises.Pais)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

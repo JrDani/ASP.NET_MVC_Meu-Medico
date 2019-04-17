@@ -31,8 +31,10 @@
                                     <div class="dropdown-menu">
                                         @Html.ActionLink("Alterar senha", "AlterarSenha", "Perfil", new { area = "" }, new { @class = "dropdown-item" })
                                         @Html.ActionLink("Gerenciar médico", "Index", "Medico", new { area = "" }, new { @class = "dropdown-item" })
-                                        @Html.ActionLink("Cadastrar cidade", "Cidades", "Adm", new { area = "" }, new { @class = "dropdown-item" })
-                                        @Html.ActionLink("Cadastrar especialidade", "Especialidades", "Adm", new { area = "" }, new { @class = "dropdown-item" })
+                                        @Html.ActionLink("Gerenciar cidades", "Index", "Cidades", new { area = "" }, new { @class = "dropdown-item" })
+                                        @Html.ActionLink("Gerenciar estado", "Index", "Estados", new { area = "" }, new { @class = "dropdown-item" })
+                                        @Html.ActionLink("Gerenciar países", "Index", "Paises", new { area = "" }, new { @class = "dropdown-item" })
+                                        @Html.ActionLink("Gerenciar especialidades", "Index", "Especialidades", new { area = "" }, new { @class = "dropdown-item" })
                                     </div>
                                 </li>
                             }
